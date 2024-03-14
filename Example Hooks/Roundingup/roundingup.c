@@ -69,14 +69,14 @@ int64_t hook(uint32_t reserved) {
 
     if(otxn_drops < (uint64_t) DROPS) {
         adjustment_amount = (uint64_t) DROPS - otxn_drops;
-    }
+    } else {
+        uint64_t fraction_part  = (otxn_drops % (uint64_t) DROPS);
+        if(fraction_part == 0) {
+            accept(SBUF("XAH Rounding: Transaction of rounded number."), 3);
+        }
 
-    uint64_t fraction_part  = (otxn_drops % (uint64_t) DROPS);
-    if(fraction_part == 0) {
-        accept(SBUF("XAH Rounding: Transaction of rounded number."), 3);
+        adjustment_amount = (uint64_t) DROPS - fraction_part;
     }
-
-    adjustment_amount = (uint64_t) DROPS - fraction_part;
 
 
     unsigned char tx[PREPARE_PAYMENT_SIMPLE_SIZE];
