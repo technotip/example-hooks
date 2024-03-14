@@ -31,14 +31,14 @@ int64_t hook(uint32_t reserved) {
     int64_t value_len = hook_param(SBUF(alt_account), SBUF(acc_key));
 
     if(value_len != 20) 
-        rollback(SBUF("XAH Rounding: Hooks Parameter Wrong."), 29);
+        rollback(SBUF("XAH Rounding: Hooks Parameter Wrong."), __LINE__);
 
     uint8_t keylet[34];
     if (util_keylet(keylet, 34, KEYLET_ACCOUNT, alt_account, 20, 0, 0, 0, 0) != 34)
-        rollback(SBUF("XAH Rounding: Fetching Keylet Failed."), 33);
+        rollback(SBUF("XAH Rounding: Fetching Keylet Failed."), __LINE__);
 
     if (slot_set(SBUF(keylet), 1) == DOESNT_EXIST)
-        rollback(SBUF("XAH Rounding: Account Does Not Exist."), 36);
+        rollback(SBUF("XAH Rounding: Account Does Not Exist."), __LINE__);
 
 
     etxn_reserve(1);    
