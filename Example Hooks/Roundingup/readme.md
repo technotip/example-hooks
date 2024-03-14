@@ -14,6 +14,6 @@ You'll have to set the **account id**, as hook parameter, to which you want to s
 Hooks should be installed with an raddress(in hex format) as a parameter.
 
 **SA** is the key. **SA** stands for Savings Account.
-**value** should be the 20 byte account ID(hex representation of any of your raddress).
+**value** should be the 20 byte account ID.
 
 Follow this code to get the 20 bye account ID of your raddress: [util_accid](https://xrpl-hooks.readme.io/reference/util_accid)
