@@ -6,7 +6,7 @@
 * 1. If you send 2.3 XAH, the remaining 0.7 XAH will be sent to the specified account.
 * 2. If you send 2.6 XAH, the remaining 0.4 XAH will be sent to the specified account.
 *
-* You'll have to set the **account id**, as hook parameter, to which you want to send the round up amount to.
+* You'll have to set the account id, as hook parameter, to which you want to send the round up amount to.
 * To get account id of your raddress, follow this: https://xrpl-hooks.readme.io/reference/util_accid
 *
 * Key: SA
@@ -57,26 +57,26 @@ int64_t hook(uint32_t reserved) {
     }
 
 
-    unsigned char amount[8];
+    uint8_t amount[8];
     int64_t amount_len = otxn_field(SBUF(amount), sfAmount);
 
     if(amount_len != 8) {
         accept(SBUF("XAH Rounding: Non-XAH Transaction."), 2);
     }
 
-    int64_t otxn_drops = AMOUNT_TO_DROPS(amount);
-    int64_t adjustment_amount;
+    uint64_t otxn_drops = AMOUNT_TO_DROPS(amount);
+    uint64_t adjustment_amount;
 
-    if(otxn_drops < (int64_t) DROPS) {
-        adjustment_amount = (int64_t) DROPS - otxn_drops;
+    if(otxn_drops < (uint64_t) DROPS) {
+        adjustment_amount = (uint64_t) DROPS - otxn_drops;
     }
 
-    int64_t fraction_part  = (otxn_drops % (int64_t) DROPS);
+    uint64_t fraction_part  = (otxn_drops % (uint64_t) DROPS);
     if(fraction_part == 0) {
         accept(SBUF("XAH Rounding: Transaction of rounded number."), 3);
     }
 
-    adjustment_amount = (int64_t) DROPS - fraction_part;
+    adjustment_amount = (uint64_t) DROPS - fraction_part;
 
 
     unsigned char tx[PREPARE_PAYMENT_SIMPLE_SIZE];
