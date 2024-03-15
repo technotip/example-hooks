@@ -1,4 +1,4 @@
-## What does the hooks do?
+## What does this hooks do?
 
 Rounds up the XAH payment.
 
