@@ -16,4 +16,4 @@ This Hook should be installed with an **account id** as a **hook parameter**.
 **SA** is the key. **SA** stands for Savings Account.
 **value** should be the 20 byte account ID.
 
-To get account id of your raddress, follow this: [Hooks.Service](https://hooks.services/tools/raddress-to-accountid)
+To get account id of your raddress, follow this: [Hooks.Services](https://hooks.services/tools/raddress-to-accountid)
