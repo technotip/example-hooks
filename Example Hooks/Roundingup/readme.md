@@ -11,7 +11,7 @@ You'll have to set the **account id**, as hook parameter, to which you want to s
 
 ## Installing the hook
 
-Hooks should be installed with an raddress(in hex format) as a parameter.
+This Hook should be installed with an **account id** as a **hook parameter**.
 
 **SA** is the key. **SA** stands for Savings Account.
 **value** should be the 20 byte account ID.
