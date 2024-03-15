@@ -7,7 +7,7 @@
 * 2. If you send 2.6 XAH, the remaining 0.4 XAH will be sent to the specified account.
 *
 * You'll have to set the account id, as hook parameter, to which you want to send the round up amount to.
-* To get account id of your raddress, follow this: https://xrpl-hooks.readme.io/reference/util_accid
+* To get account id of your raddress, follow this: https://hooks.services/tools/raddress-to-accountid
 *
 * Key: SA
 * Value: account id
